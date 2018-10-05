@@ -3,11 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import VueResource from 'vue-resource'
-Vue.use(VueResource)
-//import vue-github-api
-import GithubAPI from 'vue-github-api'
-Vue.use(GithubAPI,{token:''})
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
