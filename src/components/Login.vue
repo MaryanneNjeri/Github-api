@@ -1,7 +1,8 @@
+/* eslint-disable */
 <template>
   <div class="login-wrapper border border-light">
     <form class="form-signin" @submit.prevent="login">
-      <h2 class="form-signin-heading">Please sign in</h2>
+      <h3 class="form-signin-heading">Please sign in</h3>
       <label for="inputEmail" class="sr-only">Email address</label>
       <input v-model="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
       <label for="inputPassword" class="sr-only">Password</label>
