@@ -9,6 +9,8 @@
       <input v-model="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     </form>
+    <h2 class="form-signin-heading">Please sign in</h2>
+<div class="alert alert-danger" v-if="error">{{ error }}</div>
   </div>
 </template>
 
@@ -18,13 +20,34 @@ export default {
   data () {
     return {
       email: '',
-      password: ''
+      password: '',
+      error: false
     }
   },
   methods: {
     login () {
+    this.$http.post('/auth', { user: this.email, password: this.password })
+    .then(request => this.loginSuccessful(request))
+    .catch(() => this.loginFailed())
+    loginSuccessful (req) {
+  if (!req.data.token) {
+    this.loginFailed()
+    return
+  }
+
+  localStorage.token = req.data.token
+  this.error = false
+
+  this.$router.replace(this.$route.query.redirect || '/authors')
+}
+
+loginFailed () {
+  this.error = 'Login failed!'
+  delete localStorage.token
+}
       console.log(this.email)
       console.log(this.password)
+
     }
   }
 }
