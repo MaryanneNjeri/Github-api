@@ -3,7 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import axios from './backend/vue-axios'
+
+import auth from '@/auth'
+Vue.use(auth)
 
 Vue.config.productionTip = false
 
@@ -11,7 +13,5 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
-  axios
-  components: { App },
-  template: '<App/>'
-})
+  render: h => h(App)
+}).$mount('#app')
