@@ -3,7 +3,10 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-
+import VueResource from 'vue-resource'
+Vue.use(VueResource)
+import GitHubAPI from 'vue-github-api'
+Vue.use(GitHubAPI, { token: '22d004e7e7fc95f6f5965d6ecf75ead219c558bd' })
 import auth from '@/auth'
 Vue.use(auth)
 

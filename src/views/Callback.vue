@@ -8,7 +8,7 @@ export default {
   mounted() {
     this.$auth.handleAuthentication()
         .then((data) => {
-        this.$router.push({ name: 'Hello World' })
+        this.$router.push({ name: 'HelloWorld' })
     })
   }
 }
