@@ -36,7 +36,7 @@
       </div>
     </div>
     <ul>
-  <li v-for="(data ,github) in myGitHubData">{{data}}:{{repositories}}</li>
+  <li v-for="(value,propertyName , index ) in repositories">{{propertyName}}:{{value}} :{{index}}</li>
     </ul>
 
   </div>
@@ -49,15 +49,17 @@
 export default {
   data () {
     return {
-    myGitHubData: {}
-
+    myGitHubData: {},
+    repositories:{}
 
     }
   },
 
   mounted: function () {
      this.GitHubAPI.get('/user/repos', {}, [this.myGitHubData, 'repositories'])
+     this.GitHubAPI.get('/user/repos', {}, [this.repositories, 'full_name'])
      console.log(this.myGitHubData);
+     console.log(this.repositories);
    },
 
 
