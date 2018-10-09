@@ -6,7 +6,7 @@ import router from './router'
 import VueResource from 'vue-resource'
 Vue.use(VueResource)
 import GitHubAPI from 'vue-github-api'
-Vue.use(GitHubAPI, { token: '22d004e7e7fc95f6f5965d6ecf75ead219c558bd' })
+Vue.use(GitHubAPI, { token: 'd4299daeeb269ad4be29a8a1f7b1ec3cb5b9acaf' })
 import auth from '@/auth'
 Vue.use(auth)
 

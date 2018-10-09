@@ -22,7 +22,7 @@
 
         <p class="lead">
           <a class="btn btn-primary btn-lg" href=" " target="_blank" role="button"> Repositories  {{ repositoriesCount }}</a>
-          
+
         </p>
 
       </div>
@@ -35,28 +35,32 @@
 
       </div>
     </div>
+    <ul>
+  <li v-for="(data ,github) in myGitHubData">{{data}}:{{repositories}}</li>
+    </ul>
 
   </div>
 </template>
 
 <script>
-import axios from 'axios'
+
+
 
 export default {
   data () {
     return {
     myGitHubData: {}
+
+
     }
   },
+
   mounted: function () {
      this.GitHubAPI.get('/user/repos', {}, [this.myGitHubData, 'repositories'])
-
+     console.log(this.myGitHubData);
    },
-  methods: {
-    getStoryLink(story) {
-      return `https://www.storyblok.com/${story.full_slug}`
-    }
-  },
+
+
   computed: {
    repositoriesCount: function () {
      if (this.myGitHubData.repositories) {
